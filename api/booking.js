@@ -1,7 +1,7 @@
 // Vercel Serverless Function: nhận đơn đặt xe từ form và gửi về Telegram.
 // Biến môi trường (Vercel → Project → Settings → Environment Variables):
 //   TELEGRAM_TOKEN    token bot lấy từ @BotFather
-//   TELEGRAM_CHAT_ID  id người/nhóm nhận đơn (nhóm là số âm)
+//   TELEGRAM_CHAT_ID  id người/nhóm nhận đơn (nhóm là số âm); nhiều nơi thì cách nhau dấu phẩy
 
 const esc = s => String(s == null ? '' : s).slice(0, 500)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -40,21 +40,23 @@ module.exports = async (req, res) => {
   if (d.ghi_chu) lines.push(`📝 <b>Ghi chú:</b> ${esc(d.ghi_chu)}`);
   if (d.trang) lines.push('', `<i>Từ trang: ${esc(d.trang)}</i>`);
 
-  try {
+  const chatIds = TELEGRAM_CHAT_ID.split(',').map(s => s.trim()).filter(Boolean);
+  const results = await Promise.allSettled(chatIds.map(async chatId => {
     const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
+        chat_id: chatId,
         text: lines.join('\n'),
         parse_mode: 'HTML',
         disable_web_page_preview: true,
       }),
     });
-    if (!r.ok) throw new Error(await r.text());
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Telegram error:', err);
-    return res.status(502).json({ ok: false, error: 'Không gửi được Telegram' });
-  }
+    if (!r.ok) throw new Error(`${chatId}: ${await r.text()}`);
+  }));
+  results.filter(x => x.status === 'rejected').forEach(x => console.error('Telegram error:', x.reason));
+
+  // Chỉ cần 1 nơi nhận được là tính thành công
+  if (results.some(x => x.status === 'fulfilled')) return res.status(200).json({ ok: true });
+  return res.status(502).json({ ok: false, error: 'Không gửi được Telegram' });
 };
