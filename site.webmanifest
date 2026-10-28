@@ -1,0 +1,21 @@
+{
+  "name": "Xe Ghép An Tâm",
+  "short_name": "Xe Ghép An Tâm",
+  "lang": "vi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1324",
+  "theme_color": "#0B1324",
+  "icons": [
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
