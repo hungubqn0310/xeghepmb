@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # ============================== CẤU HÌNH ==============================
 SITE = {
     "name": "Xe Ghép An Tâm",
-    "domain": "https://xeghepantam.vn",  # ĐỔI thành tên miền thật (không có / ở cuối)
+    "domain": "https://xe-ghep-an-tam.vercel.app",  # ĐỔI khi có tên miền riêng (không có / ở cuối)
     "phone": "0369786086",
     "phone_display": "0369 786 086",
     "zalo": "0369786086",
