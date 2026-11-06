@@ -1,8 +1,8 @@
 // Sinh tự động bởi _build/build.py — đừng sửa tay.
 window.SITE_CONFIG = {
-  "phone": "0369786086",
-  "phoneDisplay": "0369 786 086",
-  "zalo": "0369786086",
+  "phone": "0879644644",
+  "phoneDisplay": "0879 644 644",
+  "zalo": "0879644644",
   "endpoint": "/api/booking",
   "routes": [
     {

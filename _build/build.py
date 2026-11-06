@@ -1,4 +1,4 @@
-"""Sinh website tĩnh Xe Ghép An Tâm.
+"""Sinh website tĩnh Đại Phát Car.
 
 Sửa phần CẤU HÌNH bên dưới (tên, tên miền, SĐT, giá, tuyến, FAQ) rồi chạy:
     python _build/build.py
@@ -15,11 +15,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ============================== CẤU HÌNH ==============================
 SITE = {
-    "name": "Xe Ghép An Tâm",
-    "domain": "https://xe-ghep-an-tam.vercel.app",  # ĐỔI khi có tên miền riêng (không có / ở cuối)
-    "phone": "0369786086",
-    "phone_display": "0369 786 086",
-    "zalo": "0369786086",
+    "name": "Đại Phát Car",
+    "domain": "https://xequangninhvip.pro.vn",  # tên miền chính (không có / ở cuối)
+    "phone": "0879644644",
+    "phone_display": "0879 644 644",
+    "zalo": "0879644644",
     "email": "",  # để trống nếu chưa có
     "city": "Hà Nội",
     "region_code": "VN-HN",

@@ -1,4 +1,4 @@
-/* Xe Ghép An Tâm — tương tác trang (vanilla, không thư viện) */
+/* Đại Phát Car — tương tác trang (vanilla, không thư viện) */
 (() => {
   'use strict';
   const CFG = window.SITE_CONFIG || { phone: '', zalo: '', routes: [] };

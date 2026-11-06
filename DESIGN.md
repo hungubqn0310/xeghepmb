@@ -1,4 +1,4 @@
-# DESIGN.md — Xe Ghép An Tâm
+# DESIGN.md — Đại Phát Car
 
 > Đèn pha trên cao tốc lúc chạng vạng: tối, tin cậy, và luôn có một vệt sáng hổ phách dẫn đường tới nút "Đặt xe".
 

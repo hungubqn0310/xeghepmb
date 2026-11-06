@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_build/
 
-Sitemap: https://xe-ghep-an-tam.vercel.app/sitemap.xml
+Sitemap: https://xequangninhvip.pro.vn/sitemap.xml
